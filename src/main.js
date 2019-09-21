@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './permission'
+import Component from './components' // 印日插件对象
 import ElementUI from 'element-ui' //  引入element-ui
-import axios from 'axios'
+import axios from './utils/axios-config'
 import 'element-ui/lib/theme-chalk/index.css' //  引入样式
 import './styles/index.less'
 
-axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
+Vue.use(Component)
 Vue.use(ElementUI) //  注册elementui
 new Vue({
   router,

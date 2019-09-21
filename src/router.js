@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/home'
 import Login from './views/login'
+import Main from './views/home/main'
 
 Vue.use(Router)
 
@@ -9,7 +10,13 @@ export default new Router({
   routes: [
     {
       path: '/home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: '', // 什么都不写就默认是二级路由组件的
+          component: Main
+        }
+      ]
     },
     {
       path: '/login',
