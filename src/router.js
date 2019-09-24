@@ -9,12 +9,28 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      redirect: '/home'
+    },
+    {
       path: '/home',
       component: Home,
       children: [
         {
           path: '', // 什么都不写就默认是二级路由组件的
           component: Main
+        },
+        {
+          path: 'comment',
+          component: () => import('./views/comment')
+        },
+        {
+          path: 'material',
+          component: () => import('./views/material')
+        },
+        {
+          path: 'articles',
+          component: () => import('./views/articles')
         }
       ]
     },

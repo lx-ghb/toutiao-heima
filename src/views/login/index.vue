@@ -78,13 +78,8 @@ export default {
             data: this.loginFrom
           }).then(result => {
             //   将后台返回的token令牌存储到前端缓存中
-            window.localStorage.setItem('user-token', result.data.data.token)
+            window.localStorage.setItem('user-token', result.data.token)
             this.$router.push('/home') //  跳转到主页
-          }).catch(() => {
-            this.$message({
-              type: 'warning',
-              message: '您的手机号或者验证码错误'
-            })
           })
         }
       })
